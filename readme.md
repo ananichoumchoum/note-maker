@@ -2,14 +2,14 @@
 
 ## Description
 
-The Note-Maker application allows users to upload images of handwritten or printed text, convert the text to Markdown format, and download it as a text file. The application also saves the notes to an SQLite database and a JSON file for persistence.
+The Note-Maker application allows users to upload images of handwritten or printed text, convert the text to Markdown format, and download it as a text file (for my purpose, but if your purpose is to download it as a Markdown file, follow the steps in the **How to Modify for Markdown Files** section). The application also saves the notes to a database for persistence.
 
 ## Features
 
 - Upload an image and extract text from it using OCR.
 - Convert the extracted text into a Markdown format.
 - Download the text as a Markdown file.
-- Save the extracted text to an SQLite database and a JSON file.
+- Save the extracted text to mySQL database.
 - View a list of saved notes and download them individually.
 
 ## How to Use
@@ -43,11 +43,11 @@ The Note-Maker application allows users to upload images of handwritten or print
 
 **Create a .env file in the server directory with the following contents**:
 ```bash
-PORT=8080
+PORT=8080<orchangeportifyouwish>
 DB_HOST=127.0.0.1
-DB_NAME=notetaker
-DB_USER=root
-DB_PASSWORD=yourpassword
+DB_NAME=<yourdatabasename>
+DB_USER=<yourusername>
+DB_PASSWORD=<yourpassword>
 DATA_FILE_PATH=./data/notes.json 
 ```
 
@@ -72,8 +72,46 @@ DATA_FILE_PATH=./data/notes.json
 5. Open a pull request.
 
 ## How to Modify for Markdown Files
-**To modify the application to use Markdown files directly, follow these steps**:
+**To modify the application to use Markdown files directly instead, delete the replace parts and replace this part of the code in the FileList component**:
+- In the frontend, update the `handleDownload` function to save the file with a `.md` extension:
+    ```javascript
+    // Download file
+    const element = document.createElement('a');
+    const file = new Blob([fileContent], { type: 'text/markdown' });
+    element.href = URL.createObjectURL(file);
+    element.download = `${note.title}.md`;
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
 
-1. Update the file handling logic: Ensure the frontend and backend handle .md files correctly.
-2. Update the database schema: Adjust the database to store Markdown-specific data.
-3. Update the UI: Ensure the UI can render Markdown files appropriately.
+    ```
+
+## Future Improvements
+1. **UI Enhancements**:
+
+    - Improve the overall look and feel of the application using a modern UI framework like Material-UI or Bootstrap.
+    - Add animations and transitions for a smoother user experience.
+    - Implement a responsive design to ensure the application works well on mobile devices.
+
+2. **User Authentication**:
+
+    - Add user authentication to allow multiple users to save and manage their own notes.
+    - Implement secure login and registration functionality.
+
+3. **Tagging and Categorization**:
+
+    - Allow users to tag and categorize their notes for better organization.
+    - Implement search functionality to filter notes by tags or categories.
+
+3. **Delete and Put method**:
+
+    - Add delete and put method to modify data in the database.
+
+4. **Markdown Editor**:
+
+    - Integrate a Markdown editor with live preview functionality.
+    - Allow users to create and edit notes directly in the Markdown format.
+
+5. **Export and Import Notes**:
+
+    - Implement functionality to export notes in various formats (PDF, Word, etc.).
+    - Allow users to import notes from other formats or applications.
