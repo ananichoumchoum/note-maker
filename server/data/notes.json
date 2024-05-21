@@ -1,0 +1,5 @@
+{
+  "id": 2,
+  "title": "another one",
+  "content": "<p>Steps to Follow:</p>\n<ol>\n<li>Frontend:</li>\n</ol>\n<ul>\n<li>Create a form with an image upload input and a title input.</li>\n<li>On form submission, send the image to the */upload&quot; endpoint.</li>\n<li>After receiving the extracted text, send the title and extracted text to the */save endpoint.</li>\n</ul>\n<ol start=\"2\">\n<li>Backend:</li>\n</ol>\n<ul>\n<li>Ensurethe /upload’ endpoint extracts and returns the text properly.</li>\n<li>Ensurethe &quot;/save' endpoint saves the title and extracted text to both the SQLite database\nand the JSON file.\nFrontend Workflow:</li>\n</ul>\n<ol>\n<li>User uploads an image and enters a title.</li>\n<li>Form submission triggers a request to thy /upload’ endpoint.</li>\n</ol>\n"
+}

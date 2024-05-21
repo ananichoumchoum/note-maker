@@ -1,0 +1,73 @@
+.upload { 
+    display: flex;
+    flex-direction: column;
+    &__title{
+        text-align: left;
+    }
+    &__form {
+        border: 2px solid grey;
+        border-radius: 10px;
+        padding: 2vw;
+        display: flex;
+        flex-direction: column;
+    }
+    &__title-label,  &__upload-label {
+        font-size: 1.5rem;
+        margin: 2vh 0;
+
+    }
+    &__title-input,
+    &__upload-input {
+      padding: 2vh;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      
+    }
+    &__upload-input {
+        font-size: 1.2rem;
+    }
+    
+    &__title-input::placeholder {
+        font-size: 1rem;;
+    }
+    &__image-preview {
+        position: relative;
+        display: inline-block;
+    }
+    &__image {
+        height:10vh;
+        width: 10vw;
+        border-radius: 8px;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+    &__button-image { 
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        margin-top: -10vh;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__button-upload {
+        margin-top: 2vh;
+        padding: 1vw;
+        border-radius: 8px;
+        background-color: darkcyan;
+        font-size: 1rem;
+    }
+    &__image-text-translator {
+        margin-top: 4vh;
+        padding: 2vh;
+        border: 2px solid grey;
+    }
+}
